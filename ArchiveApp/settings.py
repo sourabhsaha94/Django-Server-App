@@ -25,18 +25,20 @@ SECRET_KEY = 'nhbguwamkc*#47el3d93l)te2@xjf7(cp!vt73kr1drsls1h(1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'onlinelair.com',]
+ALLOWED_HOSTS = [u'onlinelair.com',u'localhost',]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'EmailArchiver.apps.EmailarchiverConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_mailbox',
 ]
 
 MIDDLEWARE = [

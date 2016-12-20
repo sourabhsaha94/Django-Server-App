@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    {% load static %}
+    <!-- Basic Page Needs
+	 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>Index</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+	 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+	 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <!-- CSS
+	 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="{% static 'EmailArchiver/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'EmailArchiver/skeleton.css' %}">
+
+    <!-- Favicon
+	 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+  </head>
+  <body>
+
+    <!-- Primary Page Layout
+	 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class="container">
+      <div class="row">
+	<div class="one-half column" style="margin-top: 25%">
+          <h4>{{current_mailbox.name}}</h4>
+          {% if email_list %}
+	  <table class="u-full-width">
+	    <thead>
+	      <tr>
+		<th>Sender</th>
+		<th>Subject</th>
+		<th>Date</th>
+		<th>body</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      {% for email in email_list %}
+	      <tr>
+		<td>{{email.sender}}</td>
+		<td>{{email.subject}}</td>
+		<td>{{email.date}}</td>
+		<td>{{email.body}}</td>
+	      </tr>
+	      {% endfor %}
+	    </tbody>
+	  </table>
+	  {% else %}
+	  <p>No new messages</p>
+	  {% endif %}
+	  <a class="button button-primary" href="{% url 'index'%}">Home</a>
+	</div>
+      </div>
+    </div>
+
+    <!-- End Document
+	 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  </body>
+</html>
